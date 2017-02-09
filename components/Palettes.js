@@ -1,30 +1,33 @@
 
 import React from 'react';
 import ColorTable from './ColorTable';
+import PaletteHeader from './PaletteHeader';
 
-const PaletteList = ({ palettes, selected, selectColor }) => {
+const Palettes = ({ palettes, selected, selectColor }) => {
     return (
         <div className={selected.length ? 'list push-down' : 'list'}>
-            { palettes.map((item, index) => (
+            { palettes.map((palette, index) => (
                 <div key={index}>
-                    <ColorTable palette={item} onColorSelect={selectColor} />
+                    <PaletteHeader title={palette.id} sourceHref={palette.source} />
+                    <ColorTable palette={palette.colors} onColorSelect={selectColor} />
                 </div>
             ))}
             <style jsx>{`
                 .list {
-                    padding: 74px 8px 0 8px;
+                    padding: 62px 12px 0 12px;
                 }
                 .push-down {
-                    padding-top: 110px;
+                    padding-top: 98px;
                 }
             `}</style>
         </div>
     );
 };
 
-PaletteList.propTypes = {
+Palettes.propTypes = {
     palettes: React.PropTypes.array.isRequired,
     selected: React.PropTypes.array.isRequired,
     selectColor: React.PropTypes.func.isRequired
 };
-export default PaletteList;
+
+export default Palettes;

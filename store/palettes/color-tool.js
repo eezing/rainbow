@@ -19,7 +19,7 @@ export function getShades({ id, shadeCount, trimCount = 0, colors }) {
             itemOut.id = `${id}-${item.id}-${shadeCount}-${i}`;
 
             itemOut.meta = {
-                id: id,
+                paletteId: id,
                 colorId: item.id,
                 paletteShadeCount: shadeCount,
                 paletteShadeIndex: i

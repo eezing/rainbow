@@ -2,7 +2,11 @@
 import { LOAD } from './action-types';
 import { getShades } from './color-tool';
 
-export const loadPalette = srcPalette => ({
+export const loadPalette = rawPalette => ({
     type: LOAD,
-    palette: getShades(srcPalette)
+    palette: {
+        id: rawPalette.id,
+        source: rawPalette.source,
+        colors: getShades(rawPalette)
+    }
 });
