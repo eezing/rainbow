@@ -6,7 +6,7 @@ const ColorTable = ({ palette, onColorSelect, width }) => {
     return (
         <div>
             {palette.map((colors, index) => (
-                    <ColorRow 
+                    <ColorRow
                         key={index}
                         colors={colors}
                         onColorSelect={onColorSelect}
@@ -14,6 +14,11 @@ const ColorTable = ({ palette, onColorSelect, width }) => {
                     />
                 )
             )}
+        <style jsx>{`
+            div {
+                margin-bottom: 12px;
+            }
+        `}</style>
         </div>
     );
 };

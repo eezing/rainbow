@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
 import { insert } from '../store/selected/action-creators';
-import List from '../components/PaletteList';
+import PalettesComponent from '../components/Palettes';
 
 const mapStateToProps = (state) => {
     return {
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(List);
+)(PalettesComponent);
