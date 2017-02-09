@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { Provider } from 'react-redux';
-import PageContainer from '../components/PageContainer';
+import Page from '../components/Page';
 import Top from '../containers/Top';
 import Palettes from '../containers/Palettes';
+import Footer from '../components/Footer';
 
 import store from '../store';
 import data from '../data';
@@ -13,9 +14,10 @@ data.map(item => store.dispatch(loadPalette(item)));
 
 export default () => (
     <Provider store={store}>
-        <PageContainer>
+        <Page>
             <Top />
             <Palettes />
-        </PageContainer>
+            <Footer />
+        </Page>
     </Provider>
 );
