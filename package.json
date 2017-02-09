@@ -1,6 +1,5 @@
 {
   "name": "rainbow",
-  "version": "1.0.0",
   "description": "A hex color picker built with Next.js",
   "scripts": {
     "dev": "next",
