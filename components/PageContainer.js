@@ -5,7 +5,7 @@ import Head from 'next/head';
 const Comp = ({ children }) => (
     <div>
         <Head>
-            <title>Colors</title>
+            <title>Rainbow</title>
             <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable = no" />
             <meta name="apple-mobile-web-app-capable" content="yes" />
             <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
