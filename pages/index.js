@@ -6,18 +6,30 @@ import Top from '../containers/Top';
 import Palettes from '../containers/Palettes';
 import Footer from '../components/Footer';
 
-import store from '../store';
+import createStore from '../store';
 import data from '../data';
 import { loadPalette } from '../store/palettes/action-creators';
 
-data.map(item => store.dispatch(loadPalette(item)));
+export default class extends React.Component {
 
-export default () => (
-    <Provider store={store}>
-        <Page>
-            <Top />
-            <Palettes />
-            <Footer />
-        </Page>
-    </Provider>
-);
+    constructor() {
+        super();
+    }
+
+    componentWillMount() {
+        this.store = createStore();
+        data.map(item => this.store.dispatch(loadPalette(item)));
+    }
+
+    render() {
+        return (
+            <Provider store={this.store}>
+                <Page>
+                    <Top />
+                    <Palettes />
+                    <Footer />
+                </Page>
+            </Provider>
+        );
+    }
+}

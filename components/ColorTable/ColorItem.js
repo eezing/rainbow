@@ -7,6 +7,10 @@ const ColorItem = class extends React.Component {
     constructor(props) {
         super(props);
         this.isTouchDevice = isTouchDevice();
+        this.onClick = this.onClick.bind(this);
+        this.state = {
+            clicked: false
+        };
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -26,14 +30,10 @@ const ColorItem = class extends React.Component {
         return false;
     }
 
-    state = {
-        clicked: false
-    };
-
-    onClick = () => {
+    onClick() {
 
         if (!this.isTouchDevice) {
-            toClipboard(this.hexInput)
+            toClipboard(this.hexInput);
         }
 
         if (this.props.onColorSelect) {
@@ -50,7 +50,7 @@ const ColorItem = class extends React.Component {
 
     render() {
 
-        const { color, width, onColorSelect } = this.props;
+        const { color, width } = this.props;
         const showActive = color.active || this.state.clicked;
 
         return (
