@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Head from 'next/head';
+import Footer from '../components/Footer';
 
 const Comp = ({ children }) => (
     <div>
@@ -13,6 +14,7 @@ const Comp = ({ children }) => (
             <link rel="apple-touch-icon" sizes="180x180" href="/static/icon.png" />
         </Head>
         {children}
+        <Footer />
         <style jsx global>{`
             body {
                 font-family: Helvetica Neue,Helvetica,Arial,sans-serif;
