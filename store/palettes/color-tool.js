@@ -2,22 +2,28 @@
 import Color from 'color-js';
 import cloneDeep from 'lodash.clonedeep';
 
-export function getShades(colors, idPrefix, count, limit, trim = 0) {
+export function getShades({ id, shadeCount, trimCount = 0, colors }) {
 
-    const middle = (count + 1) / 2;
-    const increment = limit / (count - middle);
+    const middle = (shadeCount + 1) / 2;
+    const increment = 1 / (shadeCount - middle);
 
     return colors.map((item) => {
 
         const out = [];
 
-        for (let i = count; i > 0; i--) {
+        for (let i = shadeCount; i > 0; i--) {
 
             const itemOut = cloneDeep(item);
             const colorSrc = Color(itemOut.hex);
 
-            itemOut.id = idPrefix + '-' + item.id + '-' + count + '-' + i;
-            itemOut.meta = { groupShades: count, shade: i };
+            itemOut.id = `${id}-${item.id}-${shadeCount}-${i}`;
+
+            itemOut.meta = {
+                id: id,
+                colorId: item.id,
+                paletteShadeCount: shadeCount,
+                paletteShadeIndex: i
+            };
 
             if (i < middle) {
                 itemOut.hex = blacken(colorSrc, (middle - i) * increment).toString();
@@ -30,7 +36,7 @@ export function getShades(colors, idPrefix, count, limit, trim = 0) {
             out.push(itemOut);
         }
 
-        return trim ? out.slice(trim, -trim) : out;
+        return trimCount ? out.slice(trimCount, -trimCount) : out;
     });
 }
 
@@ -38,7 +44,7 @@ export function getHighlight(hexColor) {
 
     let color = Color(hexColor);
 
-    if (color.getLuminance() <= 0.6) {
+    if (color.getLuminance() < 0.5) {
         return color.lightenByAmount(0.3).toString();
     } else {
         return color.darkenByAmount(0.3).toString();

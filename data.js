@@ -3,7 +3,6 @@ export default [
     {
         id: 'material',
         shadeCount: 15,
-        shadeLimit: 1,
         trimCount: 3,
         colors: [
             { id: 'red', hex: '#f44336' },
@@ -28,7 +27,6 @@ export default [
     {
         id: 'flat',
         shadeCount: 15,
-        shadeLimit: 1,
         trimCount: 3,
         colors: [
             { id: 'turquoise', hex: '#1abc9c' },
@@ -56,7 +54,6 @@ export default [
     {
         id: 'black',
         shadeCount: 15,
-        shadeLimit: 1,
         trimCount: 0,
         colors: [
             { id: 'black', hex: '#808080' }
