@@ -4,6 +4,4 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import reducer from './reducer';
 import middleware from './middleware';
 
-const store = createStore(reducer, composeWithDevTools(middleware));
-
-export default store;
+export default () => createStore(reducer, composeWithDevTools(middleware));
