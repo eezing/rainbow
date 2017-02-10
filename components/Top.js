@@ -1,7 +1,7 @@
 
 import React from 'react';
 import Bar from './Bar';
-import { colorsToUrl } from '../modules/url-hex';
+import { toQueryString, toColors } from '../modules/url-colors';
 
 class Top extends React.Component {
 
@@ -10,7 +10,18 @@ class Top extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        this.props.url.replace(colorsToUrl(nextProps.selected));
+        this.props.url.replace(`${this.props.url.pathname}${toQueryString(nextProps.selected)}`);
+    }
+
+    componentDidMount() {
+
+        const query = this.props.url.query;
+
+        if (!query.colors) {
+            return;
+        }
+
+        toColors(query.colors).map(color => this.props.selectColor(color));
     }
 
     render() {
