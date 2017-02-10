@@ -1,8 +1,7 @@
 
 import Color from 'color-js';
-import cloneDeep from 'lodash.clonedeep';
 
-export function getShades({ id, shadeCount, trimCount = 0, colors }) {
+export function getShades(colors, shadeCount, trimCount = 0) {
 
     const middle = (shadeCount + 1) / 2;
     const increment = 1 / (shadeCount - middle);
@@ -13,22 +12,12 @@ export function getShades({ id, shadeCount, trimCount = 0, colors }) {
 
         for (let i = shadeCount; i > 0; i--) {
 
-            const itemOut = cloneDeep(item);
-            const colorSrc = Color(itemOut.hex);
-
-            itemOut.id = `${id}-${item.id}-${shadeCount}-${i}`;
-
-            itemOut.meta = {
-                paletteId: id,
-                colorId: item.id,
-                paletteShadeCount: shadeCount,
-                paletteShadeIndex: i
-            };
+            const itemOut = { hex: item.hex };
 
             if (i < middle) {
-                itemOut.hex = blacken(colorSrc, (middle - i) * increment).toString();
+                itemOut.hex = blacken(Color(itemOut.hex), (middle - i) * increment).toString();
             } else if (i > middle) {
-                itemOut.hex = whiten(colorSrc, (i - middle) * increment).toString();
+                itemOut.hex = whiten(Color(itemOut.hex), (i - middle) * increment).toString();
             }
 
             itemOut.hexHighlight = getHighlight(itemOut.hex);

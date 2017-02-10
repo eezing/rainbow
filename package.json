@@ -24,7 +24,6 @@
   },
   "dependencies": {
     "color-js": "^1.0.4",
-    "lodash.clonedeep": "^4.5.0",
     "next": "beta",
     "react-redux": "^5.0.2",
     "redux": "^3.6.0",
