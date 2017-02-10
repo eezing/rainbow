@@ -1,7 +1,7 @@
 
 import { connect } from 'react-redux';
 import { insert, remove } from '../store/selected/action-creators';
-import Bar from '../components/Bar';
+import Top from '../components/Top';
 
 const mapStateToProps = (state) => {
     return {
@@ -19,4 +19,4 @@ const mapDispatchToProps = (dispatch) => {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(Bar);
+)(Top);
