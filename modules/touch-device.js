@@ -20,4 +20,3 @@ export function disableGestures() {
         document.body.addEventListener('gestureend', prevent);
     }
 }
-
