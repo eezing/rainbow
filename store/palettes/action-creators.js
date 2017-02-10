@@ -7,6 +7,6 @@ export const loadPalette = rawPalette => ({
     palette: {
         id: rawPalette.id,
         source: rawPalette.source,
-        colors: getShades(rawPalette)
+        colors: getShades(rawPalette.colors, rawPalette.shadeCount, rawPalette.trimCount)
     }
 });
