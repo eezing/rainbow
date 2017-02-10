@@ -10,8 +10,8 @@ const ColorRow = ({ colors, onColorSelect, width }) => {
         <div style={{ height: '30px' }}>
             {colors.map(item => {
                 return (
-                    <ColorItem 
-                        key={item.id}
+                    <ColorItem
+                        key={item.hex}
                         color={item}
                         width={width}
                         onColorSelect={onColorSelect}
