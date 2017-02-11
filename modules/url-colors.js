@@ -15,5 +15,10 @@ export function toColors(queryString) {
         return [];
     }
 
-    return queryString.split('_').map(color => ({ hex: `#${color}`, hexHighlight: getHighlight(color) }));
+    return queryString.split('_').map(color => {
+
+        const hex = '#' + color;
+
+        return { hex: hex, hexHighlight: getHighlight(hex) };
+    });
 }
