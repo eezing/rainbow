@@ -10,10 +10,10 @@ import createStore from '../store';
 import data from '../data';
 import { loadPalette } from '../store/palettes/action-creators';
 
-export default class extends React.Component {
+const Index = class extends React.Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
     }
 
     componentWillMount() {
@@ -25,11 +25,17 @@ export default class extends React.Component {
         return (
             <Provider store={this.store}>
                 <Page>
-                    <Top />
+                    <Top url={this.props.url} />
                     <Palettes />
                     <Footer />
                 </Page>
             </Provider>
         );
     }
-}
+};
+
+Index.propTypes = {
+    url: React.PropTypes.object.isRequired
+};
+
+export default Index;

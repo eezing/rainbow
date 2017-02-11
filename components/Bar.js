@@ -7,7 +7,7 @@ const Bar = ({ selected, selectColor, deleteColor }) => (
     <div className="outer-container">
 
         <div className="title">
-            { selected.length ? <h2>Rainbow</h2> : <h1>Rainbow</h1> }
+            { selected.length ? <h2><a href="/">Rainbow</a></h2> : <h1>Rainbow</h1> }
         </div>
 
         <div className="colors">
@@ -40,6 +40,17 @@ const Bar = ({ selected, selectColor, deleteColor }) => (
             h1, h2 {
                 margin: 0;
                 padding: 0;
+            }
+            a {
+                color: #000;
+                text-decoration: none;        
+            }
+            .new-link {
+                margin-left: 0.5rem;
+                padding-bottom: 0.2rem;
+                font-family: monospace;
+                display: inline-block;
+                color: #000;
             }
             .colors {
                 margin: 0 8px 12px 8px;
