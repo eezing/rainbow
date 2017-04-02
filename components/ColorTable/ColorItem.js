@@ -87,10 +87,6 @@ const ColorItem = class extends React.Component {
                         outline-style: solid;
                         outline-offset: -6.5px;
                     }
-                    .inner.active {
-                        outline-style: solid;
-                        outline-offset: -6.5px;
-                    }
                     @media (hover: none) {
                         .inner:hover {
                             outline-style: none;
@@ -98,6 +94,10 @@ const ColorItem = class extends React.Component {
                         .inner:active {
                             outline-style: none;
                         }
+                    }
+                    .inner.active {
+                        outline-style: solid;
+                        outline-offset: -6.5px;
                     }
                 `}</style>
             </div>
