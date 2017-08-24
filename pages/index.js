@@ -1,5 +1,5 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Provider } from 'react-redux';
 import Page from '../components/Page';
 import Top from '../containers/Top';
@@ -11,7 +11,6 @@ import data from '../data';
 import { loadPalette } from '../store/palettes/action-creators';
 
 const Index = class extends React.Component {
-
     constructor(props) {
         super(props);
     }
@@ -35,7 +34,7 @@ const Index = class extends React.Component {
 };
 
 Index.propTypes = {
-    url: React.PropTypes.object.isRequired
+    url: PropTypes.object.isRequired
 };
 
 export default Index;

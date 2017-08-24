@@ -1,9 +1,8 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import { isTouchDevice } from '../../modules/touch-device';
 
 const ColorItem = class extends React.Component {
-
     constructor(props) {
         super(props);
         this.isTouchDevice = isTouchDevice();
@@ -14,7 +13,6 @@ const ColorItem = class extends React.Component {
     }
 
     shouldComponentUpdate(nextProps, nextState) {
-
         if (nextState.clicked !== this.state.clicked) {
             return true;
         }
@@ -31,25 +29,22 @@ const ColorItem = class extends React.Component {
     }
 
     onClick() {
-
         if (!this.isTouchDevice) {
             toClipboard(this.hexInput);
         }
 
         if (this.props.onColorSelect) {
-
             this.props.onColorSelect(this.props.color);
 
             this.setState({
                 clicked: true
             });
 
-            setTimeout(() => this.setState({ clicked: false}), 200);
+            setTimeout(() => this.setState({ clicked: false }), 200);
         }
     }
 
     render() {
-
         const { color, width } = this.props;
         const showActive = color.active || this.state.clicked;
 
@@ -57,58 +52,63 @@ const ColorItem = class extends React.Component {
             <div
                 className="outer"
                 style={{ backgroundColor: color.hex, width: width + '%' }}
-                onClick={this.onClick}>
+                onClick={this.onClick}
+            >
                 <div
                     className={showActive ? 'inner active' : 'inner'}
                     style={{ outlineColor: color.hexHighlight }}
                 />
 
-                <input type="hidden" ref={(input) => this.hexInput = input} defaultValue={color.hex} />
+                <input
+                    type="hidden"
+                    ref={input => (this.hexInput = input)}
+                    defaultValue={color.hex}
+                />
 
                 <style jsx>{`
-                    .outer {
-                        height: 30px;
-                        float: left;
-                        cursor: pointer;
-                        touchAction: manipulation;
-                        WebkitTapHighlightColor: rgba(0,0,0,0);
-                    }
-                    .inner {
-                        height: 100%;
-                        width: 100%;
-                        margin: 0 auto;
-                        outline-width: 2px;
-                        outline-offset: -5px;
-                    }
-                    .inner:hover {
-                        outline-style: solid;
-                    }
-                    .inner:active {
-                        outline-style: solid;
-                        outline-offset: -6.5px;
-                    }
-                    @media (hover: none) {
-                        .inner:hover {
-                            outline-style: none;
-                        }
-                        .inner:active {
-                            outline-style: none;
-                        }
-                    }
-                    .inner.active {
-                        outline-style: solid;
-                        outline-offset: -6.5px;
-                    }
-                `}</style>
+          .outer {
+            height: 30px;
+            float: left;
+            cursor: pointer;
+            touchAction: manipulation;
+            WebkitTapHighlightColor: rgba(0, 0, 0, 0);
+          }
+          .inner {
+            height: 100%;
+            width: 100%;
+            margin: 0 auto;
+            outline-width: 2px;
+            outline-offset: -5px;
+          }
+          .inner:hover {
+            outline-style: solid;
+          }
+          .inner:active {
+            outline-style: solid;
+            outline-offset: -6.5px;
+          }
+          @media (hover: none) {
+            .inner:hover {
+              outline-style: none;
+            }
+            .inner:active {
+              outline-style: none;
+            }
+          }
+          .inner.active {
+            outline-style: solid;
+            outline-offset: -6.5px;
+          }
+        `}</style>
             </div>
         );
     }
 };
 
 ColorItem.propTypes = {
-    color: React.PropTypes.object.isRequired,
-    width: React.PropTypes.number.isRequired,
-    onColorSelect: React.PropTypes.func
+    color: PropTypes.object.isRequired,
+    width: PropTypes.number.isRequired,
+    onColorSelect: PropTypes.func
 };
 
 function toClipboard(input) {

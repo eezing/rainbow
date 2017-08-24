@@ -1,9 +1,8 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import ColorItem from './ColorItem';
 
 const ColorRow = ({ colors, onColorSelect, width }) => {
-
     width = width || 100 / colors.length;
 
     return (
@@ -23,9 +22,9 @@ const ColorRow = ({ colors, onColorSelect, width }) => {
 };
 
 ColorRow.propTypes = {
-    colors: React.PropTypes.array.isRequired,
-    onColorSelect: React.PropTypes.func,
-    width: React.PropTypes.number
+    colors: PropTypes.array.isRequired,
+    onColorSelect: PropTypes.func,
+    width: PropTypes.number
 };
 
 export default ColorRow;

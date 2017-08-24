@@ -1,23 +1,25 @@
-
 import Color from 'color-js';
 
 export function getShades(colors, shadeCount, trimCount = 0) {
-
     const middle = (shadeCount + 1) / 2;
     const increment = 1 / (shadeCount - middle);
 
-    return colors.map((item) => {
-
+    return colors.map(item => {
         const out = [];
 
         for (let i = shadeCount; i > 0; i--) {
-
             const itemOut = { hex: item.hex };
 
             if (i < middle) {
-                itemOut.hex = blacken(Color(itemOut.hex), (middle - i) * increment).toString();
+                itemOut.hex = blacken(
+                    Color(itemOut.hex),
+                    (middle - i) * increment
+                ).toString();
             } else if (i > middle) {
-                itemOut.hex = whiten(Color(itemOut.hex), (i - middle) * increment).toString();
+                itemOut.hex = whiten(
+                    Color(itemOut.hex),
+                    (i - middle) * increment
+                ).toString();
             }
 
             itemOut.hexHighlight = getHighlight(itemOut.hex);
@@ -30,7 +32,6 @@ export function getShades(colors, shadeCount, trimCount = 0) {
 }
 
 export function getHighlight(hexColor) {
-
     let color = Color(hexColor);
 
     if (color.getLuminance() < 0.5) {

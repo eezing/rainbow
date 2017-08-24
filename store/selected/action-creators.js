@@ -1,4 +1,3 @@
-
 import { INSERT, REMOVE } from './action-types';
 
 export const insert = (color) => ({

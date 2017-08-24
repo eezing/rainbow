@@ -1,20 +1,23 @@
-
 import React from 'react';
+import PropTypes from 'prop-types';
 import Bar from './Bar';
 import { toQueryString, toColors } from '../modules/url-colors';
+import Router from 'next/router';
 
 class Top extends React.Component {
-
     constructor(props) {
         super(props);
     }
 
     componentWillReceiveProps(nextProps) {
-        this.props.url.replace(`${this.props.url.pathname}${toQueryString(nextProps.selected)}`);
+        if (this.props.selected === nextProps.selected) return;
+        const url = `${this.props.url.pathname}${toQueryString(
+            nextProps.selected
+        )}`;
+        Router.replace(url, undefined, { shallow: true });
     }
 
     componentDidMount() {
-
         const query = this.props.url.query;
 
         if (!query.colors) {
@@ -36,11 +39,10 @@ class Top extends React.Component {
 }
 
 Top.propTypes = {
-    selected: React.PropTypes.array.isRequired,
-    selectColor: React.PropTypes.func.isRequired,
-    deleteColor: React.PropTypes.func.isRequired,
-    url: React.PropTypes.object.isRequired
+    selected: PropTypes.array.isRequired,
+    selectColor: PropTypes.func.isRequired,
+    deleteColor: PropTypes.func.isRequired,
+    url: PropTypes.object.isRequired
 };
-
 
 export default Top;

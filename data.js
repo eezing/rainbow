@@ -1,8 +1,8 @@
-
 export default [
     {
         id: 'material',
-        source: 'https://material.io/guidelines/style/color.html#color-color-palette',
+        source:
+      'https://material.io/guidelines/style/color.html#color-color-palette',
         shadeCount: 15,
         trimCount: 3,
         colors: [
@@ -57,8 +57,6 @@ export default [
         id: 'gray',
         shadeCount: 15,
         trimCount: 0,
-        colors: [
-            { id: 'black', hex: '#808080' }
-        ]
+        colors: [{ id: 'black', hex: '#808080' }]
     }
 ];
