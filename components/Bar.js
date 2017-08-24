@@ -4,27 +4,27 @@ import ColorTable from './ColorTable';
 import ActiveColor from './ActiveColor';
 
 const Bar = ({ selected, selectColor, deleteColor }) =>
-    <div className="outer-container">
-        <div className="title">
-            {selected.length
-                ? <h2>
-                    <a href="/">Rainbow</a>
-                </h2>
-                : <h1>Rainbow</h1>}
-        </div>
+  <div className="outer-container">
+    <div className="title">
+      {selected.length
+        ? <h2>
+            <a href="/">Rainbow</a>
+          </h2>
+        : <h1>Rainbow</h1>}
+    </div>
 
-        <div className="colors">
-            {selected.length
-                ? <div>
-                    <ActiveColor selected={selected} deleteColor={deleteColor} />
-                    <ColorTable palette={[selected]} onColorSelect={selectColor} />
-                </div>
-                : null}
-        </div>
+    <div className="colors">
+      {selected.length
+        ? <div>
+            <ActiveColor selected={selected} deleteColor={deleteColor} />
+            <ColorTable palette={[selected]} onColorSelect={selectColor} />
+          </div>
+        : null}
+    </div>
 
-        <div className="lines" />
+    <div className="lines" />
 
-        <style jsx>{`
+    <style jsx>{`
       .outer-container {
         width: 100%;
         position: fixed;
@@ -68,12 +68,12 @@ const Bar = ({ selected, selectColor, deleteColor }) =>
         border-bottom-color: #000;
       }
     `}</style>
-    </div>;
+  </div>;
 
 Bar.propTypes = {
-    selected: PropTypes.array.isRequired,
-    selectColor: PropTypes.func.isRequired,
-    deleteColor: PropTypes.func.isRequired
+  selected: PropTypes.array.isRequired,
+  selectColor: PropTypes.func.isRequired,
+  deleteColor: PropTypes.func.isRequired
 };
 
 export default Bar;

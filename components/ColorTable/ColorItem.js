@@ -3,69 +3,68 @@ import PropTypes from 'prop-types';
 import { isTouchDevice } from '../../modules/touch-device';
 
 const ColorItem = class extends React.Component {
-    constructor(props) {
-        super(props);
-        this.isTouchDevice = isTouchDevice();
-        this.onClick = this.onClick.bind(this);
-        this.state = {
-            clicked: false
-        };
+  constructor(props) {
+    super(props);
+    this.isTouchDevice = isTouchDevice();
+    this.onClick = this.onClick.bind(this);
+    this.state = {
+      clicked: false
+    };
+  }
+
+  shouldComponentUpdate(nextProps, nextState) {
+    if (nextState.clicked !== this.state.clicked) {
+      return true;
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
-        if (nextState.clicked !== this.state.clicked) {
-            return true;
-        }
-
-        if (nextProps.width !== this.props.width) {
-            return true;
-        }
-
-        if (nextProps.color.active !== this.props.color.active) {
-            return true;
-        }
-
-        return false;
+    if (nextProps.width !== this.props.width) {
+      return true;
     }
 
-    onClick() {
-        if (!this.isTouchDevice) {
-            toClipboard(this.hexInput);
-        }
-
-        if (this.props.onColorSelect) {
-            this.props.onColorSelect(this.props.color);
-
-            this.setState({
-                clicked: true
-            });
-
-            setTimeout(() => this.setState({ clicked: false }), 200);
-        }
+    if (nextProps.color.active !== this.props.color.active) {
+      return true;
     }
 
-    render() {
-        const { color, width } = this.props;
-        const showActive = color.active || this.state.clicked;
+    return false;
+  }
 
-        return (
-            <div
-                className="outer"
-                style={{ backgroundColor: color.hex, width: width + '%' }}
-                onClick={this.onClick}
-            >
-                <div
-                    className={showActive ? 'inner active' : 'inner'}
-                    style={{ outlineColor: color.hexHighlight }}
-                />
+  onClick() {
+    if (!this.isTouchDevice) {
+      toClipboard(this.hexInput);
+    }
 
-                <input
-                    type="hidden"
-                    ref={input => (this.hexInput = input)}
-                    defaultValue={color.hex}
-                />
+    if (this.props.onColorSelect) {
+      this.props.onColorSelect(this.props.color);
 
-                <style jsx>{`
+      this.setState({
+        clicked: true
+      });
+
+      setTimeout(() => this.setState({ clicked: false }), 200);
+    }
+  }
+
+  render() {
+    const { color, width } = this.props;
+    const showActive = color.active || this.state.clicked;
+
+    return (
+      <div
+        className="outer"
+        style={{ backgroundColor: color.hex, width: width + '%' }}
+        onClick={this.onClick}>
+        <div
+          className={showActive ? 'inner active' : 'inner'}
+          style={{ outlineColor: color.hexHighlight }}
+        />
+
+        <input
+          type="hidden"
+          ref={input => (this.hexInput = input)}
+          defaultValue={color.hex}
+        />
+
+        <style jsx>{`
           .outer {
             height: 30px;
             float: left;
@@ -100,22 +99,22 @@ const ColorItem = class extends React.Component {
             outline-offset: -6.5px;
           }
         `}</style>
-            </div>
-        );
-    }
+      </div>
+    );
+  }
 };
 
 ColorItem.propTypes = {
-    color: PropTypes.object.isRequired,
-    width: PropTypes.number.isRequired,
-    onColorSelect: PropTypes.func
+  color: PropTypes.object.isRequired,
+  width: PropTypes.number.isRequired,
+  onColorSelect: PropTypes.func
 };
 
 function toClipboard(input) {
-    input.type = 'text';
-    input.select();
-    document.execCommand('copy');
-    input.type = 'hidden';
+  input.type = 'text';
+  input.select();
+  document.execCommand('copy');
+  input.type = 'hidden';
 }
 
 export default ColorItem;

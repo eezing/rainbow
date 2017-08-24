@@ -2,17 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const PaletteHeader = ({ title, sourceHref }) => {
-    return (
-        <div>
-            {sourceHref
-                ? <a href={sourceHref} target="_blank">
-                    {title}
-                </a>
-                : <span>
-                    {title}
-                </span>}
-            <hr />
-            <style jsx>{`
+  return (
+    <div>
+      {sourceHref
+        ? <a href={sourceHref} target="_blank">
+            {title}
+          </a>
+        : <span>
+            {title}
+          </span>}
+      <hr />
+      <style jsx>{`
         div {
           margin-top: 24px;
         }
@@ -32,13 +32,13 @@ const PaletteHeader = ({ title, sourceHref }) => {
           margin-top: 2px;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 PaletteHeader.propTypes = {
-    title: PropTypes.string.isRequired,
-    sourceHref: PropTypes.string
+  title: PropTypes.string.isRequired,
+  sourceHref: PropTypes.string
 };
 
 export default PaletteHeader;

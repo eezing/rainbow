@@ -1,18 +1,13 @@
 import { LOAD } from './action-types';
 
 const palettes = (state = [], action) => {
-
-    switch(action.type) {
-
+  switch (action.type) {
     case LOAD:
-        return [
-            ...state,
-            action.palette
-        ];
+      return [...state, action.palette];
 
     default:
-        return state;
-    }
+      return state;
+  }
 };
 
 export default palettes;

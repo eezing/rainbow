@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "pretty": "prettier --tab-width 2 --single-quote --jsx-bracket-same-line --write '{components,containers,modules,pages,store,data}/**/*.js'"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,10 @@
   },
   "homepage": "https://github.com/eezing/rainbow#readme",
   "devDependencies": {
+    "babel-eslint": "^7.2.3",
     "eslint": "^4.5.0",
-    "eslint-plugin-react": "^7.3.0"
+    "eslint-plugin-react": "^7.3.0",
+    "prettier": "^1.5.3"
   },
   "dependencies": {
     "color-js": "^1.0.4",

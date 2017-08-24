@@ -3,21 +3,21 @@ import PropTypes from 'prop-types';
 import DeleteColor from './DeleteColor';
 
 const ActiveColor = ({ selected, deleteColor }) => {
-    const color = selected.filter(item => item.active === true)[0] || {};
+  const color = selected.filter(item => item.active === true)[0] || {};
 
-    const handleDelete = () => deleteColor(color);
+  const handleDelete = () => deleteColor(color);
 
-    return (
-        <div className={color.hex ? '' : 'hide-it'}>
-            <ul>
-                <li>
-                    <DeleteColor handleOnClick={handleDelete} />
-                </li>
-                <li>
+  return (
+    <div className={color.hex ? '' : 'hide-it'}>
+      <ul>
+        <li>
+          <DeleteColor handleOnClick={handleDelete} />
+        </li>
+        <li>
           hex: {color.hex}
-                </li>
-            </ul>
-            <style jsx>{`
+        </li>
+      </ul>
+      <style jsx>{`
         div {
           font-family: monospace;
           text-align: right;
@@ -35,13 +35,13 @@ const ActiveColor = ({ selected, deleteColor }) => {
           margin-left: 12px;
         }
       `}</style>
-        </div>
-    );
+    </div>
+  );
 };
 
 ActiveColor.propTypes = {
-    selected: PropTypes.array.isRequired,
-    deleteColor: PropTypes.func.isRequired
+  selected: PropTypes.array.isRequired,
+  deleteColor: PropTypes.func.isRequired
 };
 
 export default ActiveColor;
