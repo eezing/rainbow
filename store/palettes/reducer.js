@@ -1,4 +1,3 @@
-
 import { LOAD } from './action-types';
 
 const palettes = (state = [], action) => {

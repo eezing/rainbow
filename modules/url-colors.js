@@ -1,7 +1,6 @@
 import { getHighlight } from './color-tool';
 
 export function toQueryString(colors) {
-
     if (!colors.length) {
         return '';
     }
@@ -10,13 +9,11 @@ export function toQueryString(colors) {
 }
 
 export function toColors(queryString) {
-
     if (!queryString) {
         return [];
     }
 
     return queryString.split('_').map(color => {
-
         const hex = '#' + color;
 
         return { hex: hex, hexHighlight: getHighlight(hex) };

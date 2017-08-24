@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import ColorTable from './ColorTable';
 import PaletteHeader from './PaletteHeader';
 
@@ -41,9 +42,9 @@ class Palettes extends React.Component {
 }
 
 Palettes.propTypes = {
-    palettes: React.PropTypes.array.isRequired,
-    selected: React.PropTypes.array.isRequired,
-    selectColor: React.PropTypes.func.isRequired
+    palettes: PropTypes.array.isRequired,
+    selected: PropTypes.array.isRequired,
+    selectColor: PropTypes.func.isRequired
 };
 
 export default Palettes;
