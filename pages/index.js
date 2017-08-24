@@ -11,30 +11,30 @@ import data from '../data';
 import { loadPalette } from '../store/palettes/action-creators';
 
 const Index = class extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    componentWillMount() {
-        this.store = createStore();
-        data.map(item => this.store.dispatch(loadPalette(item)));
-    }
+  componentWillMount() {
+    this.store = createStore();
+    data.map(item => this.store.dispatch(loadPalette(item)));
+  }
 
-    render() {
-        return (
-            <Provider store={this.store}>
-                <Page>
-                    <Top url={this.props.url} />
-                    <Palettes />
-                    <Footer />
-                </Page>
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider store={this.store}>
+        <Page>
+          <Top url={this.props.url} />
+          <Palettes />
+          <Footer />
+        </Page>
+      </Provider>
+    );
+  }
 };
 
 Index.propTypes = {
-    url: PropTypes.object.isRequired
+  url: PropTypes.object.isRequired
 };
 
 export default Index;
