@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 
-const Comp = ({ children }) =>
+const Comp = ({ children }) => (
   <div>
     <Head>
       <title>Rainbow</title>
@@ -17,7 +17,8 @@ const Comp = ({ children }) =>
       <link rel="stylesheet" href="/static/normalize.css" />
     </Head>
     {children}
-  </div>;
+  </div>
+);
 
 Comp.propTypes = {
   children: PropTypes.arrayOf(PropTypes.element)

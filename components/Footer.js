@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default () =>
+export default () => (
   <div>
     <a
       href="https://github.com/eezing/rainbow"
@@ -22,4 +22,5 @@ export default () =>
         color: #000;
       }
     `}</style>
-  </div>;
+  </div>
+);

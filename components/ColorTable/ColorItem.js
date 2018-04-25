@@ -69,8 +69,8 @@ const ColorItem = class extends React.Component {
             height: 30px;
             float: left;
             cursor: pointer;
-            touchAction: manipulation;
-            WebkitTapHighlightColor: rgba(0, 0, 0, 0);
+            touchaction: manipulation;
+            webkittaphighlightcolor: rgba(0, 0, 0, 0);
           }
           .inner {
             height: 100%;

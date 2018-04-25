@@ -22,12 +22,12 @@ class Palettes extends React.Component {
 
     return (
       <div className={selected.length ? 'list push-down' : 'list'}>
-        {palettes.map((palette, index) =>
+        {palettes.map((palette, index) => (
           <div key={index}>
             <PaletteHeader title={palette.id} sourceHref={palette.source} />
             <ColorTable palette={palette.colors} onColorSelect={selectColor} />
           </div>
-        )}
+        ))}
         <style jsx>{`
           .list {
             padding: 62px 12px 0 12px;

@@ -19,20 +19,20 @@
   },
   "homepage": "https://github.com/eezing/rainbow#readme",
   "devDependencies": {
-    "babel-eslint": "^7.2.3",
-    "eslint": "^4.5.0",
-    "eslint-plugin-react": "^7.3.0",
-    "prettier": "^1.5.3"
+    "babel-eslint": "^8.2.3",
+    "eslint": "^4.19.1",
+    "eslint-plugin-react": "^7.7.0",
+    "prettier": "^1.12.1"
   },
   "dependencies": {
     "color-js": "^1.0.4",
-    "next": "^3.0.6",
+    "next": "^5.1.0",
     "prop-types": "^15.5.10",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
     "react-redux": "^5.0.2",
-    "redux": "^3.6.0",
-    "redux-devtools-extension": "^2.13.0",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.2",
     "redux-thunk": "^2.2.0"
   }
 }

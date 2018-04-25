@@ -3,23 +3,25 @@ import PropTypes from 'prop-types';
 import ColorTable from './ColorTable';
 import ActiveColor from './ActiveColor';
 
-const Bar = ({ selected, selectColor, deleteColor }) =>
+const Bar = ({ selected, selectColor, deleteColor }) => (
   <div className="outer-container">
     <div className="title">
-      {selected.length
-        ? <h2>
-            <a href="/">Rainbow</a>
-          </h2>
-        : <h1>Rainbow</h1>}
+      {selected.length ? (
+        <h2>
+          <a href="/">Rainbow</a>
+        </h2>
+      ) : (
+        <h1>Rainbow</h1>
+      )}
     </div>
 
     <div className="colors">
-      {selected.length
-        ? <div>
-            <ActiveColor selected={selected} deleteColor={deleteColor} />
-            <ColorTable palette={[selected]} onColorSelect={selectColor} />
-          </div>
-        : null}
+      {selected.length ? (
+        <div>
+          <ActiveColor selected={selected} deleteColor={deleteColor} />
+          <ColorTable palette={[selected]} onColorSelect={selectColor} />
+        </div>
+      ) : null}
     </div>
 
     <div className="lines" />
@@ -32,7 +34,7 @@ const Bar = ({ selected, selectColor, deleteColor }) =>
         top: 0;
         right: 0;
         left: 0;
-        zIndex: 1030;
+        zindex: 1030;
         border-bottom-style: solid;
         border-bottom-width: 1.5px;
         border-bottom-color: #000;
@@ -68,7 +70,8 @@ const Bar = ({ selected, selectColor, deleteColor }) =>
         border-bottom-color: #000;
       }
     `}</style>
-  </div>;
+  </div>
+);
 
 Bar.propTypes = {
   selected: PropTypes.array.isRequired,

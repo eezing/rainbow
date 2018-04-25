@@ -5,14 +5,14 @@ import ColorRow from './ColorRow';
 const ColorTable = ({ palette, onColorSelect, width }) => {
   return (
     <div>
-      {palette.map((colors, index) =>
+      {palette.map((colors, index) => (
         <ColorRow
           key={index}
           colors={colors}
           onColorSelect={onColorSelect}
           width={width}
         />
-      )}
+      ))}
       <style jsx>{`
         div {
           margin-bottom: 12px;

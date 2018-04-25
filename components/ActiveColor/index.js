@@ -13,9 +13,7 @@ const ActiveColor = ({ selected, deleteColor }) => {
         <li>
           <DeleteColor handleOnClick={handleDelete} />
         </li>
-        <li>
-          hex: {color.hex}
-        </li>
+        <li>hex: {color.hex}</li>
       </ul>
       <style jsx>{`
         div {
